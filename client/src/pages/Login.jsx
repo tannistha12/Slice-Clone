@@ -20,24 +20,36 @@ export default function Login() {
   };
 
   return (
-    <form onSubmit={handleLogin} className="flex flex-col gap-4 p-6 max-w-sm mx-auto mt-10">
-      <input
-        type="email"
-        placeholder="Email"
-        className="border p-2"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        className="border p-2"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button type="submit" className="bg-green-600 text-white py-2 px-4 rounded">
-        Log In
-      </button>
-    </form>
+    <div className="min-h-screen bg-gradient-to-bl from-indigo-800 via-blue-800 to-blue-600 flex items-center justify-center p-6">
+      <form 
+        onSubmit={handleLogin} 
+        className="bg-white bg-opacity-10 backdrop-blur-lg rounded-xl shadow-2xl p-10 max-w-md w-full text-white"
+      >
+        <h2 className="text-3xl font-bold mb-6 text-center">Welcome Back</h2>
+
+        <input
+          type="email"
+          placeholder="Email"
+          className="w-full p-3 rounded-md mb-4 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-indigo-400 transition"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+
+        <input
+          type="password"
+          placeholder="Password"
+          className="w-full p-3 rounded-md mb-6 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-indigo-400 transition"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <button
+          type="submit"
+          className="w-full bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-blue-700 hover:to-indigo-700 py-3 rounded-md font-semibold shadow-lg transition transform hover:scale-105"
+        >
+          Login
+        </button>
+      </form>
+    </div>
   );
 }
