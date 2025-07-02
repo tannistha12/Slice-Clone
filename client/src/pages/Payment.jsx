@@ -2,9 +2,11 @@ import { useState } from "react";
 import { auth } from "../firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 export default function Payment() {
   const [amount, setAmount] = useState("");
+  const navigate = useNavigate();
 
   const handlePayment = () => {
     if (!amount || isNaN(amount) || amount <= 0) {
@@ -27,6 +29,7 @@ export default function Payment() {
             timestamp: serverTimestamp(),
           });
           alert(`Payment successful! ID: ${response.razorpay_payment_id}`);
+          navigate("/dashboard");
         } catch (error) {
           alert("Failed to save payment: " + error.message);
         }
